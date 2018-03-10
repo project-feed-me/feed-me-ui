@@ -1,0 +1,49 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/MoodleSites
+    docker:
+      - image: circleci/node:argon-stretch-browsers
+    environment:
+      - AMAZONIAN_DIST: "https://s3.amazonaws.com/amazonian.package.release/latest/amazonian"
+      - HOSTED_ZONE: "vssdevelopment.com"
+      - IMAGE: "projectfeedme/feed-me-ui:dev"
+      - PortMapping: 4200
+
+    steps:
+      - checkout
+      - run:
+          name: lint roll
+          command: 'npm run lint'
+      - run:
+          name: run unit tests
+          command: 'npm test'
+      - run:
+          name: build docker image
+          command: 'npm run docker-build'
+      - run:
+          name: simple test
+          command: |
+            chmod +x integration/simple-test.sh
+            ./integration/simple-test.sh
+      -run: 
+          name: install amazonian
+          command: wget ${AMAZONIAN_DIST}
+      - run:
+          name: Docker login
+          command: docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: Docker Push
+          command: npm run docker-push
+      -run: 
+          name: deploy dev
+          command: ./amazonian --HostedZoneName=${HOSTED_ZONE} --Image=${IMAGE} --PortMapping=${PortMapping} --VPCName=feedme-dev \
+          ClusterName=feedmecluser-dev
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_test_results:
+          path: test-results.xml
