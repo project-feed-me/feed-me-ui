@@ -1,6 +1,6 @@
 # FeedMeApp
 
-This repository is meant to demonstrate the basic boilerplate required to create an Angular CLI based Docker container.  This is by no means meant to represent enterprise grade development flow, but can however be used as a starting point.  Somethings that could be added:
+This repository currently has the basic boilerplate required to create an Angular CLI based Docker container.  This is by no means meant to represent enterprise grade development flow, but can however be used as a starting point.  Somethings that could be added:
 
 1. Linting steps
 2. Multi-stage docker build
