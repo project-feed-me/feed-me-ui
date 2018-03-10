@@ -26,7 +26,5 @@ RUN npm build
 # Expose the port the app runs in
 EXPOSE 4200
 
-RUN apk add --no-cache curl
-
 # Serve the app
 CMD ["npm", "start"]
