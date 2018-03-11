@@ -15,8 +15,7 @@
     "e2e": "ng e2e",
     "docker-build": "docker build . -t $npm_package_config_dockerImageName:$npm_package_config_tag",
     "docker-run": "docker run -p 80:4200 $npm_package_config_dockerImageName:$npm_package_config_tag",
-    "docker-push": "docker push $npm_package_config_dockerImageName:$npm_package_config_tag",
-    "preinstall": "cross-var echo ${npm_package_name}"
+    "docker-push": "docker push $npm_package_config_dockerImageName:$npm_package_config_tag"
   },
   "private": true,
   "dependencies": {
