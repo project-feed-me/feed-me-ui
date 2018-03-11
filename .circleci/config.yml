@@ -34,7 +34,7 @@ jobs:
         - ./node_modules
     - run:
         name: build docker image
-        command: 'npm run docker-build -- -t ${IMAGE}:${CIRCLE_BUILD_NUM}'
+        command: npm run docker-build -- -t ${IMAGE}:${CIRCLE_BUILD_NUM}
     - run: 
         name: install amazonian
         command: |
@@ -55,7 +55,7 @@ jobs:
         name: deploy dev
         command: |
             chmod +x deploy.sh
-            ./deploy.sh ${HOSTED_ZONE} ${IMAGE} ${PORT_MAPPING} feedme-dev feedmecluser-dev simplyfed
+            ./deploy.sh ${HOSTED_ZONE} ${IMAGE}:${CIRCLE_BUILD_NUM} ${PORT_MAPPING} feedme-dev feedmecluser-dev simplyfed
     - store_artifacts:
         path: test-results.xml
         prefix: tests
