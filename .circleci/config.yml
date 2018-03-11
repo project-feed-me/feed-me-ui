@@ -35,9 +35,9 @@ jobs:
     # - run:
     #   name: lint roll
     #   command: 'npm run lint'
-    # - run:
-    #     name: run unit tests
-    #     command: 'npm test'
+    - run:
+        name: run unit tests
+        command: 'npm test'
     - run:
         name: build docker image
         command: 'npm run docker-build'
