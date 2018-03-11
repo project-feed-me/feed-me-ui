@@ -44,8 +44,11 @@ jobs:
     - run:
         name: docker run and test
         command: |
+            docker image ls
             npm run docker-run
             sleep 30
+            docker ps
+            docker ps -a
             curl --fail http://localhost
     - run: 
         name: install amazonian
