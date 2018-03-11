@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/MoodleSites
     docker:
-      - image: circleci/node:argon-stretch-browsers
+      - image: circleci/node:9.7.1-browsers
     environment:
       - AMAZONIAN_DIST: "https://s3.amazonaws.com/amazonian.package.release/latest/amazonian"
       - HOSTED_ZONE: "vssdevelopment.com"
