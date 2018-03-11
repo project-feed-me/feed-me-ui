@@ -59,7 +59,7 @@ jobs:
         command: npm run docker-push
     - run: 
         name: deploy dev
-        command: ./amazonian --HostedZoneName=${HOSTED_ZONE} --Image=${IMAGE} --PortMapping=${PortMapping} --VPCName=feedme-dev ClusterName=feedmecluser-dev
+        command: ./amazonian --HostedZoneName=${HOSTED_ZONE} --Image=${IMAGE} --PortMapping=${PortMapping} --VPCName=feedme-dev ClusterName=feedmecluser-dev ServiceName=simpleyfed
     - store_artifacts:
         path: test-results.xml
         prefix: tests
