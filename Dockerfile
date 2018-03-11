@@ -20,6 +20,9 @@ COPY src /usr/src
 # Install dependecies
 RUN npm install
 
+#Run Unit Tests
+RUN npm test
+
 #Build angular app
 RUN npm build
 
