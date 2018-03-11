@@ -45,7 +45,7 @@ jobs:
         name: docker run and test
         command: |
             npm run docker-run
-            wait 30
+            sleep 30
             curl --fail http://localhost
     - run: 
         name: install amazonian
