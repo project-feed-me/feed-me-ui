@@ -15,7 +15,7 @@
     "e2e": "ng e2e",
     "docker-build": "docker build . -t $npm_package_config_dockerImageName:$npm_package_config_tag",
     "docker-run": "docker run -p 80:4200 $npm_package_config_dockerImageName:$npm_package_config_tag",
-    "docker-push" : "docker push $npm_package_config_dockerImageName:$npm_package_config_tag",
+    "docker-push": "docker push $npm_package_config_dockerImageName:$npm_package_config_tag",
     "preinstall": "cross-var echo ${npm_package_name}"
   },
   "private": true,
@@ -30,6 +30,7 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
+    "cross-var": "^1.1.0",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
