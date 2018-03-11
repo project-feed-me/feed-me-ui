@@ -1,18 +1,16 @@
 version: 2
 jobs:
+  #####################################################
+  ## Build Definition (MASTER and FEATURE branches only)
+  #####################################################
   build:
     branches:
       only:
         - master
+        - feature*
     docker:
       - image: larse514/circle-ci-node-docker:latest
-    # environment:
-    #   - BUCKET_NAME: "moodle.sites.lambda.deployment"
     environment:
-      - AMAZONIAN_DIST: "https://s3.amazonaws.com/amazonian.package.release/latest/amazonian"
-      - HOSTED_ZONE: "vssdevelopment.com"
-      - IMAGE: "projectfeedme/feed-me-ui:dev"
-      - PORT_MAPPING: 4200
 
     steps:
     - checkout
@@ -35,6 +33,29 @@ jobs:
     - run:
         name: build docker image
         command: 'npm run docker-build'
+    - store_artifacts:
+        path: test-results.xml
+        prefix: tests
+    - store_artifacts:
+        path: coverage
+        prefix: coverage
+    - store_test_results:
+        path: test-results.xml
+
+  deploy:
+    branches:
+      only:
+        - master
+    docker:
+      - image: larse514/circle-ci-node-docker:latest
+    environment:
+      - AMAZONIAN_DIST: "https://s3.amazonaws.com/amazonian.package.release/latest/amazonian"
+      - HOSTED_ZONE: "vssdevelopment.com"
+      - IMAGE: "projectfeedme/feed-me-ui:dev"
+      - PORT_MAPPING: 4200
+    steps:
+    - setup_remote_docker:   # (2)
+        docker_layer_caching: true # (3)
     - run: 
         name: install amazonian
         command: |
@@ -56,11 +77,11 @@ jobs:
         command: |
             chmod +x deploy.sh
             ./deploy.sh ${HOSTED_ZONE} ${IMAGE} ${PORT_MAPPING} feedme-dev feedmecluser-dev simpleyfed
-    - store_artifacts:
-        path: test-results.xml
-        prefix: tests
-    - store_artifacts:
-        path: coverage
-        prefix: coverage
-    - store_test_results:
-        path: test-results.xml
+workflows:
+  version: 2
+  build-test-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
