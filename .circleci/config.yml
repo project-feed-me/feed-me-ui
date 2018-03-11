@@ -43,7 +43,9 @@ jobs:
         command: 'npm run docker-build'
     - run: 
         name: install amazonian
-        command: wget ${AMAZONIAN_DIST}
+        command: |
+            wget ${AMAZONIAN_DIST}
+            chmod +x amazonian
     - run:
         name: Docker login
         command: docker login -u $DOCKER_USER -p $DOCKER_PASS
