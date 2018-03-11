@@ -12,7 +12,7 @@ jobs:
       - AMAZONIAN_DIST: "https://s3.amazonaws.com/amazonian.package.release/latest/amazonian"
       - HOSTED_ZONE: "vssdevelopment.com"
       - IMAGE: "projectfeedme/feed-me-ui:dev"
-      - PortMapping: 4200
+      - PORT_MAPPING: 4200
 
     steps:
     - checkout
@@ -59,7 +59,9 @@ jobs:
         command: npm run docker-push
     - run: 
         name: deploy dev
-        command: ./amazonian --HostedZoneName=${HOSTED_ZONE} --Image=${IMAGE} --PortMapping=${PortMapping} --VPCName=feedme-dev ClusterName=feedmecluser-dev ServiceName=simpleyfed
+        command: |
+            chmod +x deploy.sh
+            ./deploy.sh ${HOSTED_ZONE} ${IMAGE} ${PORT_MAPPING} feedme-dev feedmecluser-dev simpleyfed
     - store_artifacts:
         path: test-results.xml
         prefix: tests
