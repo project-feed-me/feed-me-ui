@@ -1,5 +1,5 @@
 # FeedMeApp
-
+[![CircleCI](https://circleci.com/gh/project-feed-me/feed-me-ui.svg?style=svg)](https://circleci.com/gh/project-feed-me/feed-me-ui)
 This repository currently has the basic boilerplate required to create an Angular CLI based Docker container.  This is by no means meant to represent enterprise grade development flow, but can however be used as a starting point.  Somethings that could be added:
 
 1. Linting steps
