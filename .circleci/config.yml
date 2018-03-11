@@ -11,7 +11,7 @@ jobs:
     environment:
       - AMAZONIAN_DIST: "https://s3.amazonaws.com/amazonian.package.release/latest/amazonian"
       - HOSTED_ZONE: "vssdevelopment.com"
-      - IMAGE: "projectfeedme/feed-me-ui:dev"
+      - IMAGE: "projectfeedme/feed-me-ui:dev1"
       - PORT_MAPPING: 4200
 
     steps:
