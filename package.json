@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "config": {
-    "dockerImageName": "projectfeedme/feed-me-ui",
-    "tag": "dev1"
+    "dockerImageName": "projectfeedme/feed-me-ui"
   },
   "scripts": {
     "ng": "ng",
@@ -13,9 +12,9 @@
     "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "docker-build": "docker build . -t $npm_package_config_dockerImageName:$npm_package_config_tag",
-    "docker-run": "docker run -p 80:4200 -d $npm_package_config_dockerImageName:$npm_package_config_tag",
-    "docker-push": "docker push $npm_package_config_dockerImageName:$npm_package_config_tag"
+    "docker-build": "docker build .",
+    "docker-run": "docker run -p 80:4200 -d",
+    "docker-push": "docker push"
   },
   "private": true,
   "dependencies": {

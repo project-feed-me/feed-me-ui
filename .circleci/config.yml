@@ -11,7 +11,7 @@ jobs:
     environment:
       - AMAZONIAN_DIST: "https://s3.amazonaws.com/amazonian.package.release/latest/amazonian"
       - HOSTED_ZONE: "vssdevelopment.com"
-      - IMAGE: "projectfeedme/feed-me-ui:dev1"
+      - IMAGE: "projectfeedme/feed-me-ui"
       - PORT_MAPPING: 4200
 
     steps:
@@ -33,8 +33,8 @@ jobs:
         paths:
         - ./node_modules
     - run:
-        name: build docker image
-        command: 'npm run docker-build'
+        name: build docker image:
+        command: 'npm run docker-build -- -t ${IMAGE}:${CIRCLE_BUILD_NUM}'
     - run: 
         name: install amazonian
         command: |
@@ -50,7 +50,7 @@ jobs:
         command: docker login -u $DOCKER_USER -p $DOCKER_PASS
     - run:
         name: Docker Push
-        command: npm run docker-push
+        command: npm run docker-push  -- ${IMAGE}:${CIRCLE_BUILD_NUM}
     - run: 
         name: deploy dev
         command: |
