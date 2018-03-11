@@ -46,7 +46,7 @@ jobs:
         command: |
             docker image ls
             npm run docker-run
-            sleep 30
+            sleep 130
             docker ps
             docker ps -a
             curl --fail http://localhost
