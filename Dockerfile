@@ -13,6 +13,8 @@ COPY package.json /usr
 COPY tsconfig.json /usr
 # 
 COPY .angular-cli.json /usr
+#Copy karma conf
+COPY karma.conf.js /usr
 
 # Get all the code needed to run the app
 COPY src /usr/src
