@@ -5,7 +5,7 @@ jobs:
       only:
         - master
     docker:
-      - image: circleci/node:argon-stretch-browsers
+      - image: larse514/circle-ci-node-docker:latest
     # environment:
     #   - BUCKET_NAME: "moodle.sites.lambda.deployment"
     environment:
