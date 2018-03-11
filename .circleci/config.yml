@@ -44,8 +44,8 @@ jobs:
     - run:
         name: simple test
         command: |
-          chmod +x integration/simple-test.sh
-          ./integration/simple-test.sh
+          chmod +x simple-test.sh
+          ./simple-test.sh
     - run: 
         name: install amazonian
         command: wget ${AMAZONIAN_DIST}
