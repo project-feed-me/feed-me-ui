@@ -25,8 +25,8 @@ RUN npm install
 #Build angular app
 RUN npm build
 
-#Run Unit Tests
-RUN npm test
+# #Run Unit Tests
+# RUN npm test
 
 # Expose the port the app runs in
 EXPOSE 4200
