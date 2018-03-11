@@ -55,7 +55,7 @@ jobs:
         name: deploy dev
         command: |
             chmod +x deploy.sh
-            ./deploy.sh ${HOSTED_ZONE} ${IMAGE} ${PORT_MAPPING} feedme-dev feedmecluser-dev simpleyfed
+            ./deploy.sh ${HOSTED_ZONE} ${IMAGE} ${PORT_MAPPING} feedme-dev feedmecluser-dev simplyfed
     - store_artifacts:
         path: test-results.xml
         prefix: tests
