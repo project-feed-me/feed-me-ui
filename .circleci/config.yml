@@ -42,10 +42,13 @@ jobs:
         name: build docker image
         command: 'npm run docker-build'
     - run:
-        name: simple test
-        command: |
-          chmod +x simple-test.sh
-          ./simple-test.sh
+        name: docker run
+        command: 'npm run docker-run'
+    # - run:
+    #     name: simple test
+    #     command: |
+    #       chmod +x simple-test.sh
+    #       ./simple-test.sh
     - run: 
         name: install amazonian
         command: wget ${AMAZONIAN_DIST}
