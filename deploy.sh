@@ -12,4 +12,4 @@ CLUSTER_NAME=$5
 SERVICE_NAME=$6
 
 ./amazonian --HostedZoneName=${HOSTED_ZONE} --Image=${IMAGE} --PortMapping=${PORT_MAPPING} \
---VPCName=${VPC_NAME} ClusterName=${CLUSTER_NAME} ServiceName=${SERVICE_NAME}
+--VPCName=${VPC_NAME} --ClusterName=${CLUSTER_NAME} --ServiceName=${SERVICE_NAME}
