@@ -46,6 +46,11 @@ jobs:
         command: |
             wget ${AMAZONIAN_DIST}
             chmod +x amazonian
+    - run: 
+        name: Configure AWS environment
+        command: |
+            aws configure set default.region us-east-1
+            aws configure set default.output json
     - run:
         name: Docker login
         command: docker login -u $DOCKER_USER -p $DOCKER_PASS
