@@ -1,8 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 $global-green: #849a84;
 
-
-#global-green{
-    background: $global-green;
+@mixin align-nav-parent {
+	display: inline-block;
+	position: relative;
+	height: 100%;
 }
+@mixin align-nav-icon {
+	position: absolute;
+	top: 16px;
+	font-size: 2rem;
+}
+body{
+    background: gray;
+}
+
+.simply-fed {
+    /*nav bar SCSS */
+    .sf-nav-bar-wrapper {
+        background: white;
+        height: 50px;
+        .sf-menu-button{
+					@include align-nav-parent();
+            span{
+							@include align-nav-icon();
+							&.align-right{
+								right: 17px;
+							}		
+						}
+        }
+		}
+		/*cooking type page scss */
+		.sf-cooking-type-wrapper{
+
+		}
+    .global-green{
+        background: $global-green;
+    }
+} 
 
