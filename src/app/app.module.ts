@@ -6,13 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { loginComponent } from './login/login.component';
 import { CookTypeComponent } from './cook-food-type/cook-type.component';
-
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CookTypeComponent,
-    loginComponent
+    loginComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
