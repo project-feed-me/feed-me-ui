@@ -9,7 +9,8 @@ $global-black: #000000;
 }
 @mixin align-nav-icon {
 	position: absolute;
-	top: 16px;
+	top: 50%;
+	transform: translateX(-50%) translateY(-50%);
 	font-size: 2rem;
 }
 @mixin align-center {
@@ -19,7 +20,10 @@ $global-black: #000000;
 	transform: translateX(-50%) translateY(-50%);
 }
 body{
-    background: white;
+		background: white;
+		.global-green{
+			background: $global-green;
+	}
 }
 
 .simply-fed {
@@ -33,17 +37,42 @@ body{
         .sf-menu-button{
 					@include align-nav-parent();
             span{
+							color: $global-green;
 							@include align-nav-icon();
 							&.align-right{
-								right: 17px;
+								right: 0%;
 							}		
 						}
 				}
 				.sf-logo img{
-					// background: url("./assets/images/SimplyFed-Logo.png");
-					width: 50px;
 					height: 47px;
 				}
+		}
+		.sf-menu-container{
+			background: white;
+			color: black;
+			position: fixed;
+			right: auto;
+			top: 50%;
+			left: -300px;
+			top: 0;
+			z-index: 9999;
+			width: 100%;
+			max-width: 250px;
+			transition: all 300ms ease-in;
+			height: 100%;
+			&.active{
+				left: 0;
+				position: fixed;
+			}
+			.sf-menu-positon-holder{
+				position: relative;
+				padding-bottom: 40px;
+				.sf-close-menu-icon{
+					position: absolute;
+					right: 15px;
+				}
+			}
 		}
 		/*cooking type page scss */
 		.sf-cooking-type-wrapper {
@@ -68,19 +97,18 @@ body{
 				.sf-cooking-type-text-container{
 					color: $global-black;
 					font-size: 2rem;
-				}
-				.sf-cooking-type-title{
-					@include align-center;
-				}
-				.fas{
-					@include align-center;
-					right: 5%;
-					left: auto;
+					.sf-cooking-type-title{
+						@include align-center;
+						letter-spacing: 5px;
+					}
+					.fas{
+						@include align-center;
+						right: 5%;
+						left: auto;
+						font-size: 3rem
+					}
 				}
 			}
 		}
-    .global-green{
-        background: $global-green;
-    }
 } 
 
