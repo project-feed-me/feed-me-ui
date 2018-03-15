@@ -6,7 +6,7 @@ import { loginComponent } from './login/login.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch:'full'},
-    {path: 'login', component: loginComponent },
+    {path: 'login', component: CookTypeComponent },
     {path: 'cooking-type', component: CookTypeComponent}
 ]
 
