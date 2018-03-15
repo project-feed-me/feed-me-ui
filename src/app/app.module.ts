@@ -7,13 +7,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { loginComponent } from './login/login.component';
 import { CookTypeComponent } from './cook-food-type/cook-type.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { MenuComponent } from './menu/menu.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CookTypeComponent,
     loginComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    MenuComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
