@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 $global-green: #849a84;
+$global-black: #000000;
 
 @mixin align-nav-parent {
 	display: inline-block;
@@ -11,15 +12,24 @@ $global-green: #849a84;
 	top: 16px;
 	font-size: 2rem;
 }
+@mixin align-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+}
 body{
-    background: gray;
+    background: white;
 }
 
 .simply-fed {
     /*nav bar SCSS */
     .sf-nav-bar-wrapper {
         background: white;
-        height: 50px;
+				height: 50px;
+				.sf-logo{
+					text-align: center;
+				}
         .sf-menu-button{
 					@include align-nav-parent();
             span{
@@ -28,11 +38,46 @@ body{
 								right: 17px;
 							}		
 						}
-        }
+				}
+				.sf-logo img{
+					// background: url("./assets/images/SimplyFed-Logo.png");
+					width: 50px;
+					height: 47px;
+				}
 		}
 		/*cooking type page scss */
-		.sf-cooking-type-wrapper{
-
+		.sf-cooking-type-wrapper {
+			.sf-slow-cooker{
+				background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("./assets/images/images.crateandbarrel_1.jpg");
+			}
+			.sf-juicer{
+				background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("./assets/images/images.crateandbarrel_2.jpg");
+			}
+			.sf-sous-vide{
+				background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("./assets/images/images.crateandbarrel_3.jpg");
+			}
+			.sf-blender{
+				background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("./assets/images/images.crateandbarrel_4.jpg");
+			}
+			.sf-cooking-type-container {
+				height: 200px;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center; 
+				position: relative;
+				.sf-cooking-type-text-container{
+					color: $global-black;
+					font-size: 2rem;
+				}
+				.sf-cooking-type-title{
+					@include align-center;
+				}
+				.fas{
+					@include align-center;
+					right: 5%;
+					left: auto;
+				}
+			}
 		}
     .global-green{
         background: $global-green;

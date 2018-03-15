@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './navigation-bar.component.html',
 })
 export class NavigationBarComponent {
-  title = 'login Page';
 }
