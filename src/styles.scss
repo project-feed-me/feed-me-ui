@@ -31,6 +31,7 @@ body{
     .sf-nav-bar-wrapper {
         background: white;
 				height: 50px;
+				border-bottom: 1px solid#C0C0C0;
 				.sf-logo{
 					text-align: center;
 				}
@@ -107,6 +108,15 @@ body{
 						left: auto;
 						font-size: 3rem
 					}
+				}
+			}
+		}
+		.sf-recipe-dashboard-category-buttons-wrapper{
+			text-align: center;
+			padding-top: 40px;
+			.sf-recipe-dashboard-category-buttons-container{
+				a{
+					width: 20%;
 				}
 			}
 		}
