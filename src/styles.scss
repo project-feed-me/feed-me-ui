@@ -1,124 +1,189 @@
 /* You can add global styles to this file, and also import other style files */
+
 $global-green: #849a84;
 $global-black: #000000;
-
 @mixin align-nav-parent {
-	display: inline-block;
-	position: relative;
-	height: 100%;
+    display: inline-block;
+    position: relative;
+    height: 100%;
 }
+
 @mixin align-nav-icon {
-	position: absolute;
-	top: 50%;
-	transform: translateX(-50%) translateY(-50%);
-	font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 2rem;
 }
+
 @mixin align-center {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
-body{
-		background: white;
-		.global-green{
-			background: $global-green;
-	}
+
+body {
+	background: white;
+	/* over riding bootstrap width for now to set to mobile until desktop designs are in */
+	max-width: 375px;
+	margin: 0 auto;	
+	/* over riding bootstrap width for now to set to mobile until desktop designs are in */
+	@media (min-width: 768px) {
+        .container {
+            max-width: 375px;
+        }
+    }
+    .global-green {
+        background: $global-green;
+    }
 }
 
 .simply-fed {
     /*nav bar SCSS */
     .sf-nav-bar-wrapper {
         background: white;
-				height: 50px;
-				border-bottom: 1px solid#C0C0C0;
-				.sf-logo{
-					text-align: center;
-				}
-        .sf-menu-button{
-					@include align-nav-parent();
-            span{
-							color: $global-green;
-							@include align-nav-icon();
-							&.align-right{
-								right: 0%;
-							}		
-						}
-				}
-				.sf-logo img{
-					height: 47px;
-				}
-		}
-		.sf-menu-container{
-			background: white;
-			color: black;
-			position: fixed;
-			right: auto;
-			top: 50%;
-			left: -300px;
-			top: 0;
-			z-index: 9999;
-			width: 100%;
-			max-width: 250px;
-			transition: all 300ms ease-in;
-			height: 100%;
-			&.active{
-				left: 0;
-				position: fixed;
-			}
-			.sf-menu-positon-holder{
-				position: relative;
-				padding-bottom: 40px;
-				.sf-close-menu-icon{
-					position: absolute;
-					right: 15px;
-				}
-			}
-		}
-		/*cooking type page scss */
-		.sf-cooking-type-wrapper {
-			.sf-slow-cooker{
-				background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("./assets/images/images.crateandbarrel_1.jpg");
-			}
-			.sf-juicer{
-				background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("./assets/images/images.crateandbarrel_2.jpg");
-			}
-			.sf-sous-vide{
-				background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("./assets/images/images.crateandbarrel_3.jpg");
-			}
-			.sf-blender{
-				background: linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0.5)), url("./assets/images/images.crateandbarrel_4.jpg");
-			}
-			.sf-cooking-type-container {
-				height: 200px;
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center; 
-				position: relative;
-				.sf-cooking-type-text-container{
-					color: $global-black;
-					font-size: 2rem;
-					.sf-cooking-type-title{
-						@include align-center;
-						letter-spacing: 5px;
-					}
-					.fas{
-						@include align-center;
-						right: 5%;
-						left: auto;
-						font-size: 3rem
-					}
-				}
-			}
-		}
-		.sf-recipe-dashboard-category-buttons-wrapper{
-			text-align: center;
-			padding-top: 40px;
-			.sf-recipe-dashboard-category-buttons-container{
-				a{
-					width: 20%;
-				}
-			}
-		}
-} 
-
+        height: 50px;
+        border-bottom: 1px solid#C0C0C0;
+        .sf-logo {
+            text-align: center;
+        }
+        .sf-menu-button {
+            @include align-nav-parent();
+            span {
+                color: $global-green;
+                @include align-nav-icon();
+                &.align-right {
+                    right: 0%;
+                }
+            }
+        }
+        .sf-logo img {
+            height: 47px;
+        }
+    }
+    .sf-menu-container {
+        background: white;
+        color: black;
+        position: fixed;
+        right: auto;
+        top: 50%;
+        left: -300px;
+        top: 0;
+        z-index: 9999;
+        width: 100%;
+        max-width: 250px;
+        transition: all 300ms ease-in;
+        height: 100%;
+        &.active {
+            left: 0;
+            position: fixed;
+        }
+        .sf-menu-positon-holder {
+            position: relative;
+            padding-bottom: 40px;
+            .sf-close-menu-icon {
+                position: absolute;
+                right: 15px;
+            }
+        }
+    }
+    /*cooking type page scss */
+    .sf-cooking-type-wrapper {
+        .sf-slow-cooker {
+            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/images.crateandbarrel_1.jpg");
+        }
+        .sf-juicer {
+            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/images.crateandbarrel_2.jpg");
+        }
+        .sf-sous-vide {
+            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/images.crateandbarrel_3.jpg");
+        }
+        .sf-blender {
+            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/images.crateandbarrel_4.jpg");
+        }
+        .sf-cooking-type-container {
+            height: 200px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            .sf-cooking-type-text-container {
+                color: $global-black;
+                font-size: 2rem;
+                .sf-cooking-type-title {
+                    @include align-center;
+                    letter-spacing: 5px;
+                }
+                .fas {
+                    @include align-center;
+                    right: 5%;
+                    left: auto;
+                    font-size: 3rem
+                }
+            }
+        }
+    }
+    /* sf dashboard page */
+    .sf-recipe-dashboard-category-buttons-wrapper {
+        text-align: center;
+        padding-top: 40px;
+        .sf-recipe-dashboard-category-buttons-container {
+            a {
+                width: 20%;
+            }
+        }
+    }
+    /* expand/collapse scss */
+    .sf-expand-collapse-wrapper {
+        border-bottom: 1px solid black;
+        padding-top: 3rem;
+        float: left;
+        width: 100%;
+        .sf-expand-collapse-header-container {
+            padding-bottom: 20px;
+            .sf-expand-collapse-name {
+                float: left;
+                width: 75%;
+                text-align: left;
+            }
+            .sf-expand-collapse-arrow {
+                float: right;
+                width: 25%;
+                text-align: right;
+                .fa-angle-down {
+                    padding: 10px;
+                }
+            }
+        }
+        .sf-expand-collapse-body-container {
+            display: none;
+            &.expanded {
+                display: block;
+            }
+            .sf-expand-collapse-body-ingredients {
+                padding-bottom: 1rem;
+                .name-placeholder {
+                    text-align: left;
+                }
+                ul {
+                    list-style-type: none;
+                    width: 100%;
+                    float: left;
+										padding: 0px;
+										margin: 0px;
+                }
+                li {
+                    width: 50%;
+                    float: left;
+                    text-align: left;
+                    padding: 2px 0px;
+                }
+            }
+            .sf-expand-collapse-body-description {
+                text-align: left;
+								display: inline-block;
+								padding-bottom: 1rem;
+            }
+        }
+    }
+}

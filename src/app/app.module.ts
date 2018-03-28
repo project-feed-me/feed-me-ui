@@ -10,6 +10,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart.component';
 import { RecipeDashboardComponent } from './recipe-dashboard/recipe-dashboard.component';
+import { ExpandCollapseComponent } from './components/expand-collapse.compnent';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RecipeDashboardComponent } from './recipe-dashboard/recipe-dashboard.co
     NavigationBarComponent,
     MenuComponent,
     CartComponent,
-    RecipeDashboardComponent
+    RecipeDashboardComponent,
+    ExpandCollapseComponent
   ],
   imports: [
     BrowserModule,
