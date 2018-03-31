@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 <div class="sf-expand-collapse-wrapper container">
   <div class="sf-expand-collapse-header-container clearfix">
     <div class="sf-expand-collapse-name" [innerHTML]="recipe.name"></div>
-    <div class="sf-expand-collapse-arrow">
+    <div class="sf-expand-collapse-arrow" [class.transform-expand-icon]="expanded">
       <span class="fas fa-angle-down" (click)="toggleExpandCollapse()"></span>
     </div>
   </div>

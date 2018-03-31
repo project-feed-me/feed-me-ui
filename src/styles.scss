@@ -21,6 +21,18 @@ $global-black: #000000;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
 }
+@mixin green-button-default {
+    background: $global-green;
+    border: 1px solid $global-black;
+    color: $global-black;
+    letter-spacing: 3px;
+}
+@mixin green-button-active{
+    background: white;
+    border: 1px solid $global-green;
+    color: black;
+    letter-spacing: 3px;
+}
 
 body {
     background: white;
@@ -124,8 +136,12 @@ body {
         text-align: center;
         padding-top: 40px;
         .sf-recipe-dashboard-category-buttons-container {
-            a {
+            .btn {
                 width: 20%;
+                @include green-button-default();
+                &:hover{
+                    @include green-button-active();
+                }
             }
         }
     }
@@ -146,15 +162,24 @@ body {
                 float: right;
                 width: 25%;
                 text-align: right;
+                &.transform-expand-icon {
+                    .fa-angle-down {
+                        transform: rotate(180deg);
+                    }
+                }
                 .fa-angle-down {
                     padding: 10px;
                 }
             }
         }
         .sf-expand-collapse-body-container {
-            display: none;
+            max-height: 0px;
+            overflow: hidden;
+            transition:max-height 0.3s ease-in;
             &.expanded {
-                display: block;
+                transition:max-height 0.3s ease-in;
+                max-height: 500px;
+                overflow-x: hidden; 
             }
             .sf-expand-collapse-body-ingredients {
                 padding-bottom: 1rem;
@@ -179,6 +204,14 @@ body {
                 text-align: left;
                 display: inline-block;
                 padding-bottom: 1rem;
+            }
+            .btn {
+                @include green-button-default();
+                margin-bottom: 2rem;
+                &:hover{
+                @include green-button-active();
+                }
+
             }
         }
     }

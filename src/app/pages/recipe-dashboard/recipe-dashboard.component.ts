@@ -5,7 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './recipe-dashboard.component.html',
 })
 export class RecipeDashboardComponent implements OnInit {
-  mockRecipeData: any = [
+  private alphabetDivider: any;
+  private alphabetDividerBool: boolean = false;
+  private mockRecipeData: any = [
     {
       name: "Apple Chicken",
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
@@ -15,8 +17,24 @@ export class RecipeDashboardComponent implements OnInit {
       name: "APRICOT CHICKEN",
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
       ingredients: ["1 tbs Taco seasoning", "2 chicken breast", "4 oz chicken stock", "4 tsp salt", "7 tsp pepper", "10 tsp chili powder"]
-    },    {
+    },    
+    {
       name: "Azzzz Chicken",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      ingredients: ["6 tbs Taco seasoning", "20 chicken breast", "10 oz chicken stock", "12 tsp salt", "14 tsp pepper", "15 tsp chili powder"]
+    },
+    {
+      name: "Brass Chicken",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      ingredients: ["6 tbs Taco seasoning", "20 chicken breast", "10 oz chicken stock", "12 tsp salt", "14 tsp pepper", "15 tsp chili powder"]
+    },
+    {
+      name: "Bow; Chicken",
+      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+      ingredients: ["6 tbs Taco seasoning", "20 chicken breast", "10 oz chicken stock", "12 tsp salt", "14 tsp pepper", "15 tsp chili powder"]
+    },
+    {
+      name: "Crazy Chicken",
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
       ingredients: ["6 tbs Taco seasoning", "20 chicken breast", "10 oz chicken stock", "12 tsp salt", "14 tsp pepper", "15 tsp chili powder"]
     }
@@ -24,6 +42,18 @@ export class RecipeDashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // this.mockRecipeData.forEach(obj => {
+    //   if(obj.name.charAt(0) === 'A') {
+    //     if(this.alphabetDivider != 'A') {
+    //       this.alphabetDividerBool = true;
+    //       this.alphabetDivider = 'A';
+    //       console.log("A")
+    //     } else {
+    //       this.alphabetDividerBool = false;
+    //     }
+    //     console.log('hi')
+    //   }
+    // })
   }
 
 }

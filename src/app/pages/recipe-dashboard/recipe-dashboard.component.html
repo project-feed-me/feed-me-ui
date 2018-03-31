@@ -8,6 +8,7 @@
         <a class="btn btn-default">Chix</a>
     </div>
       <div class="sf-recipe-dashboard-expand-wrapper" *ngFor="let recipe of mockRecipeData; let i = index">
+        <div *ngIf="alphabetDividerBool" class="alphabet-divider" [innerHTML]="alphabetDivider"></div>
         <expand-collapse-component [index]="i" [recipe]="recipe"></expand-collapse-component>
       </div>
   </div>
