@@ -18,7 +18,6 @@ export class MenuComponent implements OnInit {
     } else {
       this.menuOpen = true;
     }
-    console.log(this.menuOpen)
   }
   closeMenu() {
     this.menuOpen = false;

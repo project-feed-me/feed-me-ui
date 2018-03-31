@@ -2,15 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
-import { AppRoutingModule } from './app-routing.module';
-
-import { loginComponent } from './login/login.component';
-import { CookTypeComponent } from './cook-food-type/cook-type.component';
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
-import { MenuComponent } from './menu/menu.component';
-import { CartComponent } from './cart/cart.component';
-import { RecipeDashboardComponent } from './recipe-dashboard/recipe-dashboard.component';
 import { ExpandCollapseComponent } from './components/expand-collapse.compnent';
+import { CookFoodTypeService } from './services/cook-food-type-service';
+import { RecipeDashboardComponent } from './pages/recipe-dashboard/recipe-dashboard.component';
+import { CartComponent } from './components/cart/cart.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { loginComponent } from './pages/login/login.component';
+import { CookTypeComponent } from './pages/cook-food-type/cook-type.component';
+import { AppRoutingModule } from './routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { ExpandCollapseComponent } from './components/expand-collapse.compnent';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CookFoodTypeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

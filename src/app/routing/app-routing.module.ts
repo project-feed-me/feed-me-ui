@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
+import { CookTypeComponent } from "../pages/cook-food-type/cook-type.component";
+import { loginComponent } from "../pages/login/login.component";
+import { RecipeDashboardComponent } from "../pages/recipe-dashboard/recipe-dashboard.component";
 
-import { CookTypeComponent } from './cook-food-type/cook-type.component';
-import { loginComponent } from './login/login.component';
-import { RecipeDashboardComponent } from "./recipe-dashboard/recipe-dashboard.component";
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch:'full'},
