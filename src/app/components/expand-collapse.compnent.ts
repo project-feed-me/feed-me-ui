@@ -18,6 +18,7 @@ import { Component, Input } from '@angular/core';
       </ul>
     </div>  
     <span class="sf-expand-collapse-body-description" [innerHTML]="recipe.description"></span>
+    <div class="btn ">Add To List</div>
   </div>
 </div>
   `,

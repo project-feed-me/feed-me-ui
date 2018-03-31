@@ -23,12 +23,12 @@ $global-black: #000000;
 }
 
 body {
-	background: white;
-	/* over riding bootstrap width for now to set to mobile until desktop designs are in */
-	max-width: 375px;
-	margin: 0 auto;	
-	/* over riding bootstrap width for now to set to mobile until desktop designs are in */
-	@media (min-width: 768px) {
+    background: white;
+    /* over riding bootstrap width for now to set to mobile until desktop designs are in */
+    max-width: 375px;
+    margin: 0 auto;
+    /* over riding bootstrap width for now to set to mobile until desktop designs are in */
+    @media (min-width: 768px) {
         .container {
             max-width: 375px;
         }
@@ -90,22 +90,18 @@ body {
     /*cooking type page scss */
     .sf-cooking-type-wrapper {
         .sf-slow-cooker {
-            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/images.crateandbarrel_1.jpg");
-        }
-        .sf-juicer {
-            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/images.crateandbarrel_2.jpg");
-        }
-        .sf-sous-vide {
-            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/images.crateandbarrel_3.jpg");
-        }
-        .sf-blender {
-            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/images.crateandbarrel_4.jpg");
+            &:before {
+                content: '';
+                background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)) !important;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
         }
         .sf-cooking-type-container {
             height: 200px;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
             position: relative;
             .sf-cooking-type-text-container {
                 color: $global-black;
@@ -169,8 +165,8 @@ body {
                     list-style-type: none;
                     width: 100%;
                     float: left;
-										padding: 0px;
-										margin: 0px;
+                    padding: 0px;
+                    margin: 0px;
                 }
                 li {
                     width: 50%;
@@ -181,8 +177,8 @@ body {
             }
             .sf-expand-collapse-body-description {
                 text-align: left;
-								display: inline-block;
-								padding-bottom: 1rem;
+                display: inline-block;
+                padding-bottom: 1rem;
             }
         }
     }

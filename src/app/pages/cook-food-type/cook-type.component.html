@@ -1,0 +1,10 @@
+<div class="sf-cooking-type-wrapper">
+	<div class="row">
+		<div class="sf-slow-cooker sf-cooking-type-container" *ngFor="let data of mockHttpData " [ngStyle]="{'background':'url(' + data.imageUrl + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover', 'background-position': 'center' }" (click)="toDashboardPage()">
+			<div class="sf-cooking-type-text-container">
+				<span class="sf-cooking-type-title" [innerHTML]="data.name"></span>
+				<span class="fas fa-angle-right"></span>
+			</div>
+		</div>
+	</div>
+</div>
