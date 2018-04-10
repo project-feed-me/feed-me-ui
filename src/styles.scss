@@ -64,8 +64,7 @@ body {
         background-color: $global-green;
         width: 100%;
         text-align: left;
-        padding-left: 15px;
-        padding: 1rem;
+        padding: 1rem 0px 1rem 15px;
     }
 }
 
@@ -176,6 +175,7 @@ body {
             vertical-align: middle;
             padding: 20px 0px;
             .sf-expand-collapse-name {
+                line-height: 34px;
                 float: left;
                 width: 75%;
                 text-align: left;
