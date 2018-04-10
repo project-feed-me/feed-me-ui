@@ -7,8 +7,8 @@
         <a class="btn btn-default">Beef</a>
         <a class="btn btn-default">Chix</a>
     </div>
-      <div class="sf-recipe-dashboard-expand-wrapper" *ngFor="let recipe of mockRecipeData; let i = index">
-        <div *ngIf="alphabetDividerBool" class="alphabet-divider" [innerHTML]="alphabetDivider"></div>
+      <div class="sf-recipe-dashboard-expand-wrapper clearfix"  *ngFor="let recipe of mockRecipeData | slice:0 ; let i = index; let letter">
+        <div *ngIf="recipe.isSlicer" [ngClass]="{'alphabet-slicer': recipe.isSlicer}" [innerHTML]="recipe.name | slice:0:1"></div>
         <expand-collapse-component [index]="i" [recipe]="recipe"></expand-collapse-component>
       </div>
   </div>
