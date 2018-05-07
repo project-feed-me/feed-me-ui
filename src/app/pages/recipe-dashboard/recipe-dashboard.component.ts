@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IRecipeItem } from '../../interfaces/irecipe';
+import { CookFoodTypeService } from '../../services/cook-food-type-service';
 
 @Component({
   selector: 'app-recipe-dashboard',
@@ -10,7 +12,7 @@ export class RecipeDashboardComponent implements OnInit {
 
   private counter: 0;
   private i: number;
-  private mockRecipeData: any = [
+  private mockRecipeData: Array<IRecipeItem> = [
     {
       name: "Apple Chicken",
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
@@ -130,7 +132,7 @@ export class RecipeDashboardComponent implements OnInit {
     {letter: "Y"},
     {letter: "Z"}
   ];
-  constructor() { }
+  constructor(    private cookfoodservice: CookFoodTypeService) { }
 
   ngOnInit() {
     // console.log(this.alphabetDividerArray)
@@ -144,6 +146,14 @@ export class RecipeDashboardComponent implements OnInit {
         index ++;
       }
     })
+
+  }
+
+  addToCart(){
+    console.log(this.getRecipeItems)
+  }
+  getRecipeItems(){
+    this.cookfoodservice.getHeroes();
   }
 
 }

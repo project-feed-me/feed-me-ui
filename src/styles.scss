@@ -70,14 +70,14 @@ body {
 
 .simply-fed {
     /*nav bar SCSS */
-    .sf-nav-bar-wrapper {
+    .nav-bar-wrapper {
         background: white;
         height: 50px;
         border-bottom: 1px solid#C0C0C0;
-        .sf-logo {
+        .logo {
             text-align: center;
         }
-        .sf-menu-button {
+        .menu-button {
             @include align-nav-parent();
             span {
                 color: $global-green;
@@ -87,11 +87,11 @@ body {
                 }
             }
         }
-        .sf-logo img {
+        .logo img {
             height: 47px;
         }
     }
-    .sf-menu-container {
+    .menu-container {
         background: white;
         color: black;
         position: fixed;
@@ -108,18 +108,45 @@ body {
             left: 0;
             position: fixed;
         }
-        .sf-menu-positon-holder {
+        .menu-positon-holder {
             position: relative;
             padding-bottom: 40px;
-            .sf-close-menu-icon {
+            .close-menu-icon {
                 position: absolute;
                 right: 15px;
             }
         }
     }
+    .cart-container{
+            background: white;
+            color: black;
+            position: fixed;
+            right: 0px;
+            top: -500px;
+            z-index: 9999;
+            width: 100%;
+            height:0px;
+            max-height: 0px;
+            max-width: 250px;
+            transition: all 500ms ease-in;
+            &.active {
+                top: 0px;
+                position: fixed;
+                height: 75%;
+                max-height: 1000px;
+            }
+            .menu-positon-holder {
+                position: relative;
+                padding-bottom: 40px;
+                .close-menu-icon {
+                    position: absolute;
+                    right: 15px;
+                }
+            }
+    }
     /*cooking type page scss */
-    .sf-cooking-type-wrapper {
-        .sf-slow-cooker {
+    .cooking-type-wrapper {
+        .slow-cooker {
             &:before {
                 content: '';
                 background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)) !important;
@@ -130,13 +157,13 @@ body {
                 left: 0;
             }
         }
-        .sf-cooking-type-container {
+        .cooking-type-container {
             height: 200px;
             position: relative;
-            .sf-cooking-type-text-container {
+            .cooking-type-text-container {
                 color: $global-black;
                 font-size: 2rem;
-                .sf-cooking-type-title {
+                .cooking-type-title {
                     @include align-center;
                     letter-spacing: 5px;
                 }
@@ -150,11 +177,11 @@ body {
         }
     }
     /* sf dashboard page */
-    .sf-recipe-dashboard-category-buttons-wrapper {
+    .recipe-dashboard-category-buttons-wrapper {
         overflow-y: scroll;
         text-align: center;
         padding-top: 40px;
-        .sf-recipe-dashboard-category-buttons-container {
+        .recipe-dashboard-category-buttons-container {
             margin-bottom: 3rem;
             .btn {
                 width: 20%;
@@ -166,21 +193,21 @@ body {
         }
     }
     /* expand/collapse scss */
-    .sf-expand-collapse-wrapper {
+    .expand-collapse-wrapper {
         position: relative;
         border-bottom: 1px solid black;
         float: left;
         width: 100%;
-        .sf-expand-collapse-header-container {
+        .expand-collapse-header-container {
             vertical-align: middle;
             padding: 20px 0px;
-            .sf-expand-collapse-name {
+            .expand-collapse-name {
                 line-height: 34px;
                 float: left;
-                width: 75%;
+                width: 50%;
                 text-align: left;
             }
-            .sf-expand-collapse-arrow {
+            .expand-collapse-arrow {
                 float: right;
                 width: 25%;
                 text-align: right;
@@ -194,7 +221,7 @@ body {
                 }
             }
         }
-        .sf-expand-collapse-body-container {
+        .expand-collapse-body-container {
             max-height: 0px;
             overflow: hidden;
             transition:max-height 0.3s ease-in;
@@ -203,7 +230,7 @@ body {
                 max-height: 500px;
                 overflow-x: hidden; 
             }
-            .sf-expand-collapse-body-ingredients {
+            .expand-collapse-body-ingredients {
                 padding-bottom: 1rem;
                 .name-placeholder {
                     text-align: left;
@@ -222,7 +249,7 @@ body {
                     padding: 2px 0px;
                 }
             }
-            .sf-expand-collapse-body-description {
+            .expand-collapse-body-description {
                 text-align: left;
                 display: inline-block;
                 padding-bottom: 1rem;
