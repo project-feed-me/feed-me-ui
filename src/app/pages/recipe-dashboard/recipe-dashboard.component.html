@@ -1,16 +1,29 @@
 <div class="row">
 <div class="col-sm-12">
   <div class="recipe-dashboard-category-buttons-wrapper clearfix">
-    <div class="recipe-dashboard-category-buttons-container">
-        <a class="btn btn-default">Pork</a>
-        <a class="btn btn-default">Fish</a>
-        <a class="btn btn-default">Beef</a>
-        <a class="btn btn-default">Chix</a>
-    </div>
-      <div class="recipe-dashboard-expand-wrapper clearfix"  *ngFor="let recipe of mockRecipeData | slice:0 ; let i = index; let letter">
-        <div *ngIf="recipe.isSlicer" [ngClass]="{'alphabet-slicer': recipe.isSlicer}" [innerHTML]="recipe.name | slice:0:1"></div>
-        <expand-collapse-component [index]="i" [recipe]="recipe"></expand-collapse-component>
+    <div class="recipe-dashboard-category-buttons-container carousel-wrapper">
+      <div class="left-arrow">
+        <a (click)="scrollCarousel('left')">
+            <span class="fas fa-angle-left"></span>
+        </a>
       </div>
+      <div class="carousel-items-wrapper">
+          <div *ngFor="let primaryIngrdient of PrimaryIngredients" class="carousel-item" [style.left.%]="moveCarousel">
+              <a class="btn btn-default" [innerHTML]="primaryIngrdient.name" (click)="grabPrimaryIngredient(primaryIngrdient.id)"></a>
+            </div>
+      </div>
+      <div class="right-arrow">
+          <a (click)="scrollCarousel('right')">
+              <span class="fas fa-angle-right"></span>
+          </a>
+      </div>
+    </div>
+    <div *ngIf="ReturnedRecipes">
+        <div class="recipe-dashboard-expand-wrapper clearfix"  *ngFor="let recipe of ReturnedRecipes.content | slice:0 ; let i = index; let letter">
+            <div *ngIf="recipe.isSlicer" [ngClass]="{'alphabet-slicer': recipe.isSlicer}" [innerHTML]="recipe.name | slice:0:1"></div>
+            <expand-collapse-component [index]="i" [recipe]="recipe"></expand-collapse-component>
+          </div>
+    </div>
   </div>
 </div>
 </div>
