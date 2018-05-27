@@ -10,7 +10,6 @@ export class CartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.list)
   }
 
   toggleCart() {
@@ -25,7 +24,6 @@ export class CartComponent implements OnInit {
   }
   ngAfterContentChecked(){
     this.list = SelectedItems;
-    console.log(this.list)
   }
   removeItem(){
 

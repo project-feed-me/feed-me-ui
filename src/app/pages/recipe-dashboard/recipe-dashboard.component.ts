@@ -11,9 +11,12 @@ import { CookFoodTypeService } from '../../services/cook-food-type-service';
 export class RecipeDashboardComponent implements OnInit {
   private alphabetDivider: any;
   private alphabetDividerBool: boolean = true;
-  private PrimaryIngrdients = {};
+  private PrimaryIngredients;
+  private ReturnedRecipes;
   private counter: 0;
   private i: number;
+  private moveCarousel: number = 0;
+  private index = 0;
   private mockRecipeData: Array<IRecipeItem> = [
     {
       name: "Apple Chicken",
@@ -146,9 +149,31 @@ export class RecipeDashboardComponent implements OnInit {
         index ++;
       }
     })
-    this.PrimaryIngrdients = this.simplyFedService.getPrimaryIngredients();
-    console.log(this.PrimaryIngrdients)
+    this.simplyFedService.getPrimaryIngredients().subscribe(returnedPrimaryIngrdients => {
+      this.PrimaryIngredients = returnedPrimaryIngrdients 
+      console.log("about to see whats what") 
+      console.log(this.PrimaryIngredients)
+    });
+  }
 
+  scrollCarousel(direction: string){
+    console.log(direction)
+    if(direction.toString() === 'right'){
+      let scrollBy = 33.3333
+      this.index--
+      this.moveCarousel = this.index * scrollBy;
+      console.log(this.index * scrollBy)
+    } else {
+      let scrollBy = 33.3333
+      this.index++
+      this.moveCarousel = this.index * scrollBy;
+    }
+  }
+  grabPrimaryIngredient(id: number){
+    this.simplyFedService.getPrimaryIngredient(id).subscribe(returnedIngrdients => {
+      this.ReturnedRecipes = returnedIngrdients;
+      console.log(this.ReturnedRecipes.content)
+    })
   }
 
 }
