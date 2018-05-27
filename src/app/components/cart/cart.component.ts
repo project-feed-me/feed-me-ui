@@ -1,15 +1,16 @@
+import { SelectedItems } from './../../mock-data';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'cart-component',
   templateUrl: './cart.component.html',
 })
 export class CartComponent implements OnInit {
   menuOpen:boolean = false;
-
+  list: any;
   constructor() { }
 
   ngOnInit() {
+    console.log(this.list)
   }
 
   toggleCart() {
@@ -21,5 +22,12 @@ export class CartComponent implements OnInit {
   }
   closeMenu() {
     this.menuOpen = false;
+  }
+  ngAfterContentChecked(){
+    this.list = SelectedItems;
+    console.log(this.list)
+  }
+  removeItem(){
+
   }
 }

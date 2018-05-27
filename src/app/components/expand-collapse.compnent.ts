@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-
+import { SelectedItems } from './../mock-data';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'expand-collapse-component',
   template: `
@@ -20,7 +20,7 @@ import { Component, Input } from '@angular/core';
       </ul>
     </div>  
     <span class="expand-collapse-body-description" [innerHTML]="recipe.description"></span>
-    <div class="btn ">Add To List</div>
+    <div class="btn" (click)="outputClickedItem(this.recipe)">Add To Cart</div>
   </div>
 </div>
   `,
@@ -28,8 +28,18 @@ import { Component, Input } from '@angular/core';
 export class ExpandCollapseComponent {
   @Input() recipe: any;
   @Input() index: string;
+  @Output() clickedItem = new EventEmitter<any>();
+  
+  constructor() { }
+
   expanded: boolean = false;
   toggleExpandCollapse() {
     this.expanded = this.expanded === false ? true : false;
+  }
+
+  outputClickedItem(item: any){
+    SelectedItems.push(item)
+    console.log(SelectedItems)
+    this.clickedItem.emit()
   }
 }

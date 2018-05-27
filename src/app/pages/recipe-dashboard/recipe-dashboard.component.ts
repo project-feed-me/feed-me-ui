@@ -1,3 +1,5 @@
+import { PrimaryIngrdients } from './../../placeholderModels/primary-ingredients';
+import { simplyFedServices } from '../../services/simply-fed-services';
 import { Component, OnInit } from '@angular/core';
 import { IRecipeItem } from '../../interfaces/irecipe';
 import { CookFoodTypeService } from '../../services/cook-food-type-service';
@@ -9,7 +11,7 @@ import { CookFoodTypeService } from '../../services/cook-food-type-service';
 export class RecipeDashboardComponent implements OnInit {
   private alphabetDivider: any;
   private alphabetDividerBool: boolean = true;
-
+  private PrimaryIngrdients = {};
   private counter: 0;
   private i: number;
   private mockRecipeData: Array<IRecipeItem> = [
@@ -132,28 +134,21 @@ export class RecipeDashboardComponent implements OnInit {
     {letter: "Y"},
     {letter: "Z"}
   ];
-  constructor(    private cookfoodservice: CookFoodTypeService) { }
+  constructor(    private cookfoodservice: CookFoodTypeService, private simplyFedService: simplyFedServices) { }
 
   ngOnInit() {
-    // console.log(this.alphabetDividerArray)
     let index: number = 0
     this.mockRecipeData.forEach(obj => {
     obj.name.charAt(0).toString()
       if(obj.name.charAt(0).toString() === this.alphabetDividerArray[index].letter.toString()){
         obj.isSlicer = true;
         this.alphabetDivider = this.alphabetDividerArray[index].letter.toString()
-        console.log(this.alphabetDividerArray[index].letter.toString())
         index ++;
       }
     })
+    this.PrimaryIngrdients = this.simplyFedService.getPrimaryIngredients();
+    console.log(this.PrimaryIngrdients)
 
-  }
-
-  addToCart(){
-    console.log(this.getRecipeItems)
-  }
-  getRecipeItems(){
-    this.cookfoodservice.getHeroes();
   }
 
 }

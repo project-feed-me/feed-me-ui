@@ -46,17 +46,9 @@ html {
     background: #FF0000;
 }
 body {
-    background: white;
-    /* over riding bootstrap width for now to set to mobile until desktop designs are in */
-    max-width: 375px;
-    margin: 0 auto;
-    
-    /* over riding bootstrap width for now to set to mobile until desktop designs are in */
-    @media (min-width: 768px) {
-        .container {
-            max-width: 375px;
-        }
-    }
+		background: white;
+    overflow-x: hidden;
+
     .global-green {
         background: $global-green;
     }
@@ -79,7 +71,7 @@ body {
         }
         .menu-button {
             @include align-nav-parent();
-            span {
+            .menuIcon {
                 color: $global-green;
                 @include align-nav-icon();
                 &.align-right {
@@ -118,32 +110,56 @@ body {
         }
     }
     .cart-container{
-            background: white;
-            color: black;
+        background: white;
+        color: black;
+        position: fixed;
+        left: auto;
+        top: 50%;
+        right: -300px;
+        top: 0;
+        z-index: 9999;
+        width: 100%;
+        max-width: 250px;
+        transition: all 300ms ease-in;
+				height: 100%;
+        &.active {
+            right: 0;
             position: fixed;
-            right: 0px;
-            top: -500px;
-            z-index: 9999;
-            width: 100%;
-            height:0px;
-            max-height: 0px;
-            max-width: 250px;
-            transition: all 500ms ease-in;
-            &.active {
-                top: 0px;
-                position: fixed;
-                height: 75%;
-                max-height: 1000px;
+        }
+        .menu-positon-holder {
+            position: relative;
+            padding-bottom: 40px;
+            .close-menu-icon {
+                position: absolute;
+                right: 15px;
             }
-            .menu-positon-holder {
-                position: relative;
-                padding-bottom: 40px;
-                .close-menu-icon {
-                    position: absolute;
-                    right: 15px;
-                }
-            }
-    }
+        }
+        .cart-item{
+						border: 1px solid black;
+						padding: 1rem;
+						div{
+							float: left;
+							width: 85%;
+						}
+        }
+		}
+		.cart-counter{
+			border: 1px solid black;
+			width: 11px;
+			height: 12px;
+			display: block;
+			position: absolute;
+			top: 63%;
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+			right: 2px;
+			bottom: 0px;
+			background: #ff7f7f;
+			border-radius: 5px;
+			color: white;
+			text-align: center;
+			font-size: 7px;
+		}
     /*cooking type page scss */
     .cooking-type-wrapper {
         .slow-cooker {
