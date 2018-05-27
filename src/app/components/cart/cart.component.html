@@ -1,1 +1,13 @@
-<span class="fas fa-list-ul align-right" (click)="toggleCart()"></span>
+<span class="fas fa-list-ul align-right menuIcon" (click)="toggleCart()"></span>
+<span *ngIf="this.list.length != 0" class="cart-counter" [innerHTML]="this.list.length"></span>
+<div class="cart-container" [ngClass]="{'active': menuOpen}">
+  <div class="menu-positon-holder">
+      <span class="close-menu-icon fas fa-times menuIcon" (click)="closeMenu()"></span>
+  </div>
+    <div *ngFor="let item of list">
+      <div class="cart-item">
+        <div [innerHTML]="item.name"></div>
+        <span class="fa fa-minus-circle" (click)="removeItem()"></span>
+      </div>
+    </div>
+</div>

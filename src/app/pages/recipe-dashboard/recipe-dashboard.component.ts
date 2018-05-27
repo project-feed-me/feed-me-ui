@@ -1,4 +1,8 @@
+import { PrimaryIngrdients } from './../../placeholderModels/primary-ingredients';
+import { simplyFedServices } from '../../services/simply-fed-services';
 import { Component, OnInit } from '@angular/core';
+import { IRecipeItem } from '../../interfaces/irecipe';
+import { CookFoodTypeService } from '../../services/cook-food-type-service';
 
 @Component({
   selector: 'app-recipe-dashboard',
@@ -7,10 +11,10 @@ import { Component, OnInit } from '@angular/core';
 export class RecipeDashboardComponent implements OnInit {
   private alphabetDivider: any;
   private alphabetDividerBool: boolean = true;
-
+  private PrimaryIngrdients = {};
   private counter: 0;
   private i: number;
-  private mockRecipeData: any = [
+  private mockRecipeData: Array<IRecipeItem> = [
     {
       name: "Apple Chicken",
       description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
@@ -130,20 +134,21 @@ export class RecipeDashboardComponent implements OnInit {
     {letter: "Y"},
     {letter: "Z"}
   ];
-  constructor() { }
+  constructor(    private cookfoodservice: CookFoodTypeService, private simplyFedService: simplyFedServices) { }
 
   ngOnInit() {
-    // console.log(this.alphabetDividerArray)
     let index: number = 0
     this.mockRecipeData.forEach(obj => {
     obj.name.charAt(0).toString()
       if(obj.name.charAt(0).toString() === this.alphabetDividerArray[index].letter.toString()){
         obj.isSlicer = true;
         this.alphabetDivider = this.alphabetDividerArray[index].letter.toString()
-        console.log(this.alphabetDividerArray[index].letter.toString())
         index ++;
       }
     })
+    this.PrimaryIngrdients = this.simplyFedService.getPrimaryIngredients();
+    console.log(this.PrimaryIngrdients)
+
   }
 
 }
