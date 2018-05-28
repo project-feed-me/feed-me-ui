@@ -16,13 +16,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       <div class="details-amount-selector-container">
       </div>
       <ul>
-        <li *ngFor="let ingredients of recipe.ingredients">
-            <span>{{ingredients.ingredient.name}}
+        <li *ngFor="let ingredient of recipe.ingredients">
+            <span>{{ingredient.usageQuantity | number: '1.2-2' }} 
+            {{ingredient.usageUoM}} {{ingredient.ingredient.name}}
             </span>
         </li>
       </ul>
     </div>  
-    <span class="expand-collapse-body-description" [innerHTML]="recipe.description"></span>
+    <span class="expand-collapse-body-description" [innerHTML]="recipe.instructions"></span>
     <div class="btn" (click)="outputClickedItem(this.recipe)">Add To Cart</div>
   </div>
 </div>
