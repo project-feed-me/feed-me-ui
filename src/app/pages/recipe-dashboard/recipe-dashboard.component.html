@@ -18,9 +18,12 @@
           </a>
       </div>
     </div>
+    <div class="search-bar-wrapper">
+      <input class="search-input" placeholder="Filter Recipes" [(ngModel)]="searchText"/>
+    </div>
     <div *ngIf="ReturnedRecipes">
-        <div class="recipe-dashboard-expand-wrapper clearfix"  *ngFor="let recipe of ReturnedRecipes.content | slice:0 ; let i = index; let letter">
-            <div *ngIf="recipe.isSlicer" [ngClass]="{'alphabet-slicer': recipe.isSlicer}" [innerHTML]="recipe.name | slice:0:1"></div>
+        <div class="recipe-dashboard-expand-wrapper clearfix"  *ngFor="let recipe of ReturnedRecipes.content | filter : searchText">
+            <div *ngIf="recipe.newSlice" [ngClass]="{'alphabet-slicer': recipe.newSlice}" [innerHTML]="recipe.name | slice:0:1"></div>
             <expand-collapse-component [index]="i" [recipe]="recipe"></expand-collapse-component>
           </div>
     </div>

@@ -1,5 +1,6 @@
 import { SelectedItems } from './../../mock-data';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'cart-component',
   templateUrl: './cart.component.html',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class CartComponent implements OnInit {
   menuOpen:boolean = false;
   list: any;
-  constructor() { }
+  private downloadJsonHref: any;
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }
@@ -25,7 +27,17 @@ export class CartComponent implements OnInit {
   ngAfterContentChecked(){
     this.list = SelectedItems;
   }
-  removeItem(){
-
+  removeItem(itemId: string){
+    for (var i = SelectedItems.length; i--;) {
+      if (SelectedItems[i].id === itemId) {
+        SelectedItems.splice(i, 1);
+      }
+      console.log(SelectedItems)
+    }
+  }
+  generateDownloadJsonUri() {
+    var theJSON = JSON.stringify(this.list);
+    // var uri = this.sanitizer.bypassSecurityTrustUrl("data:text/json;charset=UTF-8," + encodeURIComponent(theJSON));
+    this.downloadJsonHref = theJSON;
   }
 }

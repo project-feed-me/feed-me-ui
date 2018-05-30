@@ -137,11 +137,16 @@ body {
         .cart-item{
 						border: 1px solid black;
 						padding: 1rem;
+						margin-bottom: 3px;
 						div{
 							float: left;
 							width: 85%;
 						}
-        }
+				}
+				.download-button{
+					left: 30%;
+					margin-top: 2rem;
+					position: absolute;				}
 		}
 		.cart-counter{
 			border: 1px solid black;
@@ -232,12 +237,24 @@ body {
                     @include green-button-active();
                 }
             }
-        }
+				}
+				.search-bar-wrapper{
+					padding: 0 1rem;
+					margin-bottom: 1rem;
+					.search-input{
+						width: 100%;
+						border: 1px solid $global-green;
+						border-radius: 5px;
+						padding: 0.5rem;
+					}
+				}
     }
     /* expand/collapse scss */
     .expand-collapse-wrapper {
         position: relative;
-        border-bottom: 1px solid black;
+				border-bottom: 1px solid black;
+				border-top: 1px solid black;
+				margin: 1px 0;
         float: left;
         width: 100%;
         .expand-collapse-header-container {
@@ -246,7 +263,7 @@ body {
             .expand-collapse-name {
                 line-height: 34px;
                 float: left;
-                width: 50%;
+                width: 60%;
                 text-align: left;
             }
             .expand-collapse-arrow {
@@ -271,12 +288,14 @@ body {
                 transition:max-height 0.3s ease-in;
                 max-height: 500px;
                 overflow-x: hidden; 
-            }
+						}
+						.name-placeholder {
+							font-weight: bold;
+								text-align: left;
+								font-size: 1.6rem;
+						}
             .expand-collapse-body-ingredients {
                 padding-bottom: 1rem;
-                .name-placeholder {
-                    text-align: left;
-                }
                 ul {
                     list-style-type: none;
                     width: 100%;
@@ -298,7 +317,7 @@ body {
             }
             .btn {
                 @include green-button-default();
-                margin-bottom: 2rem;
+                margin: 2rem 0;
                 &:hover{
                 @include green-button-active();
                 }

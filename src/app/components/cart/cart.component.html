@@ -7,7 +7,8 @@
     <div *ngFor="let item of list">
       <div class="cart-item">
         <div [innerHTML]="item.name"></div>
-        <span class="fa fa-minus-circle" (click)="removeItem()"></span>
+        <span class="fa fa-minus-circle" (click)="removeItem(item.id)"></span>
       </div>
     </div>
+    <a *ngIf="list.length != 0" class="btn btn-default download-button" [href]="downloadJsonHref" (click)="generateDownloadJsonUri">Download</a>
 </div>
