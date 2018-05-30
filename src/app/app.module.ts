@@ -1,6 +1,8 @@
+import { FilterPipe } from './pages/filter-pipe';
 import { simplyFedServices } from './services/simply-fed-services';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 
 import { ExpandCollapseComponent } from './components/expand-collapse.compnent';
@@ -18,6 +20,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,12 +31,14 @@ import { MessageService } from './message.service';
     CartComponent,
     RecipeDashboardComponent,
     ExpandCollapseComponent,
-    MessagesComponent
+    MessagesComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
 
   ],
   providers: [CookFoodTypeService, MessageService, simplyFedServices],

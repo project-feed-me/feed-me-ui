@@ -5,7 +5,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   template: `
 <div class="expand-collapse-wrapper container">
   <div class="expand-collapse-header-container clearfix">
-    <div class="expand-collapse-name" [innerHTML]="recipe.name"></div>
+    <h4 class="expand-collapse-name" [innerHTML]="recipe.name"></h4>
     <div class="expand-collapse-arrow" [class.transform-expand-icon]="expanded">
       <span class="fas fa-angle-down" (click)="toggleExpandCollapse()"></span>
     </div>
@@ -16,13 +16,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
       <div class="details-amount-selector-container">
       </div>
       <ul>
-        <li *ngFor="let ingredient of recipe.ingredients">
-            <span>{{ingredient.usageQuantity | number: '1.2-2' }} 
-            {{ingredient.usageUoM}} {{ingredient.ingredient.name}}
-            </span>
+        <li *ngFor="let ingredients of recipe.ingredients">
+            <span [innerHTML]="ingredients.usageQuantity | slice:0:3"></span>
+            <span [innerHTML]="ingredients.usageUoM"></span>
+            <span [innerHTML]="ingredients.ingredient.name"></span>
         </li>
       </ul>
-    </div>  
+    </div>
+    <div class="name-placeholder">Instructions:</div>
     <span class="expand-collapse-body-description" [innerHTML]="recipe.instructions"></span>
     <div class="btn" (click)="outputClickedItem(this.recipe)">Add To Cart</div>
   </div>
