@@ -7,8 +7,9 @@ import { RequestOptions } from '@angular/http';
  
 @Injectable()
 export class simplyFedServices {
+    private recipesUrl = 'https://simplyfedapi.vssdevelopment.com/v1/cookingmethods/:cid/primaryingredients/:pid'
     private primaryIngredientsUrl = 'https://simplyfedapi.vssdevelopment.com/v1/primaryingredients';  // URL to web api
-    private otherHalfUrl = '/recipes?page=0&size=99&sort=name'
+    private otherHalfUrl = 'recipes?page=0&size=99&sort=name'
     constructor(
         private http: HttpClient) { }
  
@@ -17,8 +18,9 @@ getPrimaryIngredients (): Observable<PrimaryIngrdients[]> {
     return this.http.get<PrimaryIngrdients[]>(this.primaryIngredientsUrl);
   }
   //* GET specific primary ingrdient from the server */
-  getPrimaryIngredient(id: number): Observable<any> {
-    const url = `${this.primaryIngredientsUrl}/${id}/${this.otherHalfUrl}`;
+  getPrimaryIngredient(primaryId: string, cookingMethodId: string): Observable<any> {
+    let tempUrl = this.recipesUrl.replace(':cid', cookingMethodId).replace(':pid', primaryId);
+    const url = `${tempUrl}/${this.otherHalfUrl}`;
     return this.http.get<any>(url)
   }
 }

@@ -1,6 +1,6 @@
 <div class="cooking-type-wrapper">
 	<div class="row">
-		<div class="slow-cooker cooking-type-container" *ngFor="let data of mockHttpData " [ngStyle]="{'background':'url(' + data.imageUrl + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover', 'background-position': 'center' }" (click)="toDashboardPage()">
+		<div class="slow-cooker cooking-type-container" *ngFor="let data of mockHttpData " [ngStyle]="{'background':'url(' + data.imageUrl + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover', 'background-position': 'center' }" (click)="toDashboardPage(data.id)">
 			<div class="cooking-type-text-container">
 				<span class="cooking-type-title" [innerHTML]="data.name"></span>
 				<span class="fas fa-angle-right"></span>

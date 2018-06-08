@@ -23,7 +23,7 @@ export class CookTypeComponent implements OnInit {
     this.mockHttpData = this.cookfoodservice.getCookFoodType() ;  
   }
 
-  toDashboardPage(){
-    this.router.navigateByUrl('recipe-dashboard');
+  toDashboardPage(id: string){
+    this.router.navigateByUrl(`recipe-dashboard/${id}`);
   }
 }

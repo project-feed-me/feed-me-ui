@@ -3,6 +3,7 @@ import { simplyFedServices } from '../../services/simply-fed-services';
 import { Component, OnInit } from '@angular/core';
 import { IRecipeItem } from '../../interfaces/irecipe';
 import { CookFoodTypeService } from '../../services/cook-food-type-service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-dashboard',
@@ -13,13 +14,15 @@ export class RecipeDashboardComponent implements OnInit {
   private alphabetDividerBool: boolean = true;
   private PrimaryIngredients;
   private ReturnedRecipes;
+  private cookingMethodId: string;
   private counter: 0;
   private i: number;
   private moveCarousel: number = 0;
   private index = 0;
 
   private alphabetDividerArray: any = [];
-  constructor(    private cookfoodservice: CookFoodTypeService, private simplyFedService: simplyFedServices) { }
+  constructor(     private route: ActivatedRoute,
+    private router: Router,  private cookfoodservice: CookFoodTypeService, private simplyFedService: simplyFedServices) { }
 
   ngOnInit() {
     let index: number = 0
@@ -33,6 +36,10 @@ export class RecipeDashboardComponent implements OnInit {
     // })
     this.simplyFedService.getPrimaryIngredients().subscribe(returnedPrimaryIngrdients => {
       this.PrimaryIngredients = returnedPrimaryIngrdients
+    });
+    this.route.url.subscribe((params: Params) => {
+      this.cookingMethodId = params[1].path
+      console.log(this.cookingMethodId)
     });
   }
 
@@ -48,8 +55,8 @@ export class RecipeDashboardComponent implements OnInit {
       this.moveCarousel = this.index * scrollBy;
     }
   }
-  grabPrimaryIngredient(id: number){
-    this.simplyFedService.getPrimaryIngredient(id).subscribe(returnedIngrdients => {
+  grabPrimaryIngredient(id: string){
+    this.simplyFedService.getPrimaryIngredient(id, this.cookingMethodId).subscribe(returnedIngrdients => {
       this.ReturnedRecipes = returnedIngrdients;
       console.log(this.ReturnedRecipes.content)
       let char;
